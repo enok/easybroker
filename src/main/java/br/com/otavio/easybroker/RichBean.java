@@ -1,4 +1,4 @@
-package br.com.otavio;
+package br.com.otavio.easybroker;
 
 import java.io.Serializable;
 
