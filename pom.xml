@@ -43,7 +43,9 @@
 	</properties>
 
 	<build>
-		<finalName>easybroker-${project.version}</finalName>
+		
+		<finalName>EasyBroker</finalName>
+		
 		<plugins>
 			<plugin>
 				<artifactId>maven-compiler-plugin</artifactId>
@@ -216,6 +218,12 @@
 			<groupId>log4j</groupId>
 			<artifactId>log4j</artifactId>
 			<version>1.2.16</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-core</artifactId>
+			<version>3.0.5.RELEASE</version>
 		</dependency>
 
 		<!-- Tests -->

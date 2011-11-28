@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+	
+	<!-- BuscaPapeisThreadPoolService -->
+	<entry key="busca-number-of-threads">1</entry>
+	<entry key="busca-interval">1</entry>
+	<entry key="busca-interval-unit">HOURS</entry>
+	
+	<!-- ConsultaPapeisThreadPoolService -->
+	<entry key="consulta-number-of-threads">1</entry>
+	<entry key="consulta-interval">15</entry>
+	<entry key="consulta-interval-unit">MINUTES</entry>
+	
+</properties>

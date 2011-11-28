@@ -1,6 +1,6 @@
-package br.com.otavio.easybroker.rest;
+package br.com.otavio.easybroker.rest.model;
 
-public class PapelBean {
+public class Papel {
 
 	public static final String NODE = "Papel";
 
@@ -27,7 +27,7 @@ public class PapelBean {
 	private Float ultimo;
 	private Float oscilacao;
 
-	public PapelBean() {
+	public Papel() {
 	}
 
 	public String getCodigo() {

@@ -1,16 +1,16 @@
 package br.com.otavio.easybroker.rest;
 
-import static br.com.otavio.easybroker.rest.PapelBean.ABERTURA;
-import static br.com.otavio.easybroker.rest.PapelBean.CODIGO;
-import static br.com.otavio.easybroker.rest.PapelBean.DATA;
-import static br.com.otavio.easybroker.rest.PapelBean.IBOVESPA;
-import static br.com.otavio.easybroker.rest.PapelBean.MAXIMO;
-import static br.com.otavio.easybroker.rest.PapelBean.MEDIO;
-import static br.com.otavio.easybroker.rest.PapelBean.MINIMO;
-import static br.com.otavio.easybroker.rest.PapelBean.NODE;
-import static br.com.otavio.easybroker.rest.PapelBean.NOME;
-import static br.com.otavio.easybroker.rest.PapelBean.OSCILACAO;
-import static br.com.otavio.easybroker.rest.PapelBean.ULTIMO;
+import static br.com.otavio.easybroker.rest.model.Papel.ABERTURA;
+import static br.com.otavio.easybroker.rest.model.Papel.CODIGO;
+import static br.com.otavio.easybroker.rest.model.Papel.DATA;
+import static br.com.otavio.easybroker.rest.model.Papel.IBOVESPA;
+import static br.com.otavio.easybroker.rest.model.Papel.MAXIMO;
+import static br.com.otavio.easybroker.rest.model.Papel.MEDIO;
+import static br.com.otavio.easybroker.rest.model.Papel.MINIMO;
+import static br.com.otavio.easybroker.rest.model.Papel.NODE;
+import static br.com.otavio.easybroker.rest.model.Papel.NOME;
+import static br.com.otavio.easybroker.rest.model.Papel.OSCILACAO;
+import static br.com.otavio.easybroker.rest.model.Papel.ULTIMO;
 
 import java.io.IOException;
 import java.io.StringReader;
@@ -33,6 +33,8 @@ import org.w3c.dom.NodeList;
 import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
 
+import br.com.otavio.easybroker.rest.model.Papel;
+
 import com.sun.jersey.api.client.Client;
 import com.sun.jersey.api.client.ClientResponse;
 import com.sun.jersey.api.client.WebResource;
@@ -43,12 +45,12 @@ public class RestClient {
 	private static final Logger log = Logger.getLogger(RestClient.class);
 
 	/**
-	 * Get a list of {@link PapelBean}
+	 * Get a list of {@link Papel}
 	 * 
 	 * @param papeis
 	 * @return
 	 */
-	public List< PapelBean > getPapeis( final String... papeis ) {
+	public List< Papel > getPapeis( final String... papeis ) {
 
 		log.debug("[getPapeis] papeis: " + papeis);
 
@@ -80,7 +82,7 @@ public class RestClient {
 		String output = response.getEntity(String.class);
 		log.debug( "[getPapeis] output: " + output );
 		
-		List<PapelBean> papeisBeans = setElements(output);
+		List<Papel> papeisBeans = setElements(output);
 		log.debug( "[getPapeis] papeisBeans size: " + papeisBeans.size() );
 		
 		return papeisBeans;
@@ -92,7 +94,7 @@ public class RestClient {
 	 * @param output
 	 * @return
 	 */
-	private List<PapelBean> setElements( final String output ) {
+	private List<Papel> setElements( final String output ) {
 		
 		DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
 		DocumentBuilder db = null;
@@ -124,13 +126,13 @@ public class RestClient {
 		
 		NodeList nodes = doc.getElementsByTagName( NODE );
 		
-		List< PapelBean > papeisBeans = new ArrayList< PapelBean >();
+		List< Papel > papeisBeans = new ArrayList< Papel >();
 		
 		for (int i = 0; i < nodes.getLength(); i++) {
 
 			Element element = (Element) nodes.item(i);
 			
-			PapelBean papel = new PapelBean();
+			Papel papel = new Papel();
 			
 			papel.setCodigo( element.getAttribute( CODIGO ));
 			papel.setNome( element.getAttribute( NOME ));
