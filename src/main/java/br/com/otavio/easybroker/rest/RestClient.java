@@ -42,7 +42,7 @@ import com.sun.jersey.core.util.MultivaluedMapImpl;
 
 public class RestClient {
 
-	private static final Logger log = Logger.getLogger(RestClient.class);
+	private static final Logger log = Logger.getLogger( RestClient.class );
 
 	/**
 	 * Get a list of {@link Papel}
@@ -169,14 +169,14 @@ public class RestClient {
 	 * @return
 	 */
 	private Long getDate( final String string ) {
-
-		SimpleDateFormat sdf = new SimpleDateFormat( "dd/MM/yyyy HH:mm:ss" );
+		
+		SimpleDateFormat sdf = new SimpleDateFormat( "dd/MM/yyyyHH:mm:ss" );
 		Date date = null;
 		
 		try {
 			date = sdf.parse( string );
 		} catch (ParseException e) {
-			String msg = "Could parse the date string: " + string;
+			String msg = "Could not parse the date string: " + string;
 			log.error( msg );
 			throw new RuntimeException( msg, e );
 		}
@@ -201,14 +201,6 @@ public class RestClient {
 		builder.append(papeis[i]);
 
 		return builder.toString();
-	}
-	
-	public static void main(String... args) {
-		
-		Float f1 = new Float("3,20".replaceAll(",", "."));
-		System.out.println( "f1: " + f1 );
-		Float f2 = new Float("3.15");
-		System.out.println( "f2: " + f2 );
 	}
 	
 }

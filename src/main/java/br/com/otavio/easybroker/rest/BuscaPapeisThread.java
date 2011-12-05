@@ -5,7 +5,6 @@ import org.apache.log4j.Logger;
 /**
  * Thread de busca de papeis
  * 
- * @author enok
  * @since 2011-11
  */
 public class BuscaPapeisThread extends Thread {

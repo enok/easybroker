@@ -18,7 +18,7 @@ public class BuscaPapeisThreadPoolService extends ScheduledThreadPoolExecutor {
 	 * Inicia o threadpool de busca de papeis
 	 * 
 	 * @param numberOfThreads
-	 * @param delay TODO
+	 * @param delay
 	 * @param unit
 	 * @param command
 	 */

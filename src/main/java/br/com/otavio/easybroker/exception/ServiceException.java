@@ -3,7 +3,6 @@ package br.com.otavio.easybroker.exception;
 /**
  * Scheduler executor exception
  * 
- * @author enok
  * @since 2011-11
  */
 public class ServiceException extends RuntimeException {

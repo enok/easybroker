@@ -1,11 +1,13 @@
 package br.com.otavio.easybroker.rest;
 
+import java.util.List;
 import java.util.concurrent.ScheduledThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 
 import org.apache.log4j.Logger;
 
 import br.com.otavio.easybroker.exception.ServiceException;
+import br.com.otavio.easybroker.rest.model.Papel;
 
 public class ConsultaPapeisThreadPoolService extends ScheduledThreadPoolExecutor {
 	
@@ -13,6 +15,7 @@ public class ConsultaPapeisThreadPoolService extends ScheduledThreadPoolExecutor
 	
 	private long delay;
 	private TimeUnit unit;
+	private List< Papel > papeis;
 	
 	/**
 	 * Inicia o threadpool de busca de papeis
@@ -36,10 +39,18 @@ public class ConsultaPapeisThreadPoolService extends ScheduledThreadPoolExecutor
 	}
 	
 	/**
+	 * Init the threads
+	 */
+	public void initThreads() {
+		
+		addThread( new ConsultaPapeisThread( "consulta-papeis", this, new RestClient() ) );
+	}
+	
+	/**
 	 * 
 	 * @param command
 	 */
-	public void addThread( final Runnable command  ) {
+	private void addThread( final Runnable command  ) {
 		
 		log.debug( "thread [" + command + "] adicionada" );
 		
@@ -50,6 +61,22 @@ public class ConsultaPapeisThreadPoolService extends ScheduledThreadPoolExecutor
 			log.error( ex );
 			throw new ServiceException( "could not add runnable (" + command + ") to threadpool" );
 		}
+	}
+
+	// getters 'n setters
+
+	/**
+	 * @return the papeis
+	 */
+	public List<Papel> getPapeis() {
+		return papeis;
+	}
+
+	/**
+	 * @param papeis the papeis to set
+	 */
+	public void setPapeis(List<Papel> papeis) {
+		this.papeis = papeis;
 	}
 	
 }

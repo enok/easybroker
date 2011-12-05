@@ -16,7 +16,8 @@
 		<constructor-arg value="${busca-interval-unit}" type="java.util.concurrent.TimeUnit" />
 	</bean>
 
-	<bean id="consultaPapeisThreadPoolService" class="br.com.otavio.easybroker.rest.ConsultaPapeisThreadPoolService">
+	<bean id="consultaPapeisThreadPoolService" init-method="initThreads"
+		class="br.com.otavio.easybroker.rest.ConsultaPapeisThreadPoolService">
 		
 		<constructor-arg value="${consulta-number-of-threads}" type="int" />
 		<constructor-arg value="${consulta-interval}" type="long" />
