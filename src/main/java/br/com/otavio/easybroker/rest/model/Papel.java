@@ -1,5 +1,8 @@
 package br.com.otavio.easybroker.rest.model;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 public class Papel {
 
 	public static final String NODE = "Papel";
@@ -58,6 +61,14 @@ public class Papel {
 		return data;
 	}
 
+	public String getDataFormatada() {
+		
+		SimpleDateFormat sdf = new SimpleDateFormat( "dd/MM/yyyy HH:mm:ss" );
+		Date date = new Date( data );
+		
+		return sdf.format( date );
+	}
+	
 	public void setData(Long data) {
 		this.data = data;
 	}
@@ -110,6 +121,10 @@ public class Papel {
 		this.oscilacao = oscilacao;
 	}
 
+	public boolean isNegativo() {
+		return oscilacao < 0;
+	}
+	
 	@Override
 	public String toString() {
 		return codigo;

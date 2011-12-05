@@ -23,5 +23,9 @@
 		<constructor-arg value="${consulta-interval}" type="long" />
 		<constructor-arg value="${consulta-interval-unit}" type="java.util.concurrent.TimeUnit" />
 	</bean>
+
+	<bean id="papeisBean" class="br.com.otavio.easybroker.view.PapeisBean">
+		<property name="consultaPapeisThreadPoolService" ref="consultaPapeisThreadPoolService" />
+	</bean>
 	
 </beans>
