@@ -3,8 +3,12 @@ package br.com.otavio.easybroker.rest.model;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import org.apache.log4j.Logger;
+
 public class Papel {
 
+	private static final Logger log = Logger.getLogger( Papel.class );
+	
 	public static final String NODE = "Papel";
 
 	public static final String CODIGO = "Codigo";
@@ -66,7 +70,10 @@ public class Papel {
 		SimpleDateFormat sdf = new SimpleDateFormat( "dd/MM/yyyy HH:mm:ss" );
 		Date date = new Date( data );
 		
-		return sdf.format( date );
+		String result = sdf.format( date );
+		log.debug( "[getDataFormatada] result: " + result );
+		
+		return result;
 	}
 	
 	public void setData(Long data) {
@@ -122,9 +129,42 @@ public class Papel {
 	}
 
 	public boolean isNegativo() {
-		return oscilacao < 0;
+		boolean result = oscilacao < 0;
+		log.debug( "[isNegativo] result: " + result );
+		return result;
 	}
 	
+	/* (non-Javadoc)
+	 * @see java.lang.Object#hashCode()
+	 */
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((codigo == null) ? 0 : codigo.hashCode());
+		return result;
+	}
+
+	/* (non-Javadoc)
+	 * @see java.lang.Object#equals(java.lang.Object)
+	 */
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Papel other = (Papel) obj;
+		if (codigo == null) {
+			if (other.codigo != null)
+				return false;
+		} else if (!codigo.equals(other.codigo))
+			return false;
+		return true;
+	}
+
 	@Override
 	public String toString() {
 		return codigo;

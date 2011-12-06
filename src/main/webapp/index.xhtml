@@ -5,111 +5,128 @@
 
 <body>
 
-	.estiloVermelho { 
-		text-align: center;
-		color: red;
-	}
-	
-	.estiloAzul { 
-		text-align: center;
-		color: red;
-	}
-
 <ui:composition template="/templates/template.xhtml">
 
     <ui:define name="title">Papeis</ui:define>
 
     <ui:define name="body">
-        <h:form prependId="false">
-			<rich:dataTable id="papeisDatatable" 
-				onRowMouseOver="this.style.backgroundColor='#F1F1F1'" 
-				onRowMouseOut="this.style.backgroundColor='#{a4jSkin.tableBackgroundColor}'" 
-				cellpadding="0" 
-				cellspacing="0" 
-				width="100%" 
-				border="0" 
-				var="papel" 
-				value="#{papeisBean.consultaPapeisThreadPoolService.papeis}">
+    	<f:view>
+	        <h:form id="form">
 				
-				<f:facet name="header">
-					<rich:columnGroup>
-						<rich:column width="10%">
-							<h:outputText value="Codigo" />
-						</rich:column>
-						<rich:column width="10%">
-							<h:outputText value="Nome" />
-						</rich:column>
-						<rich:column width="10%">
-							<h:outputText value="Ibovespa" />
-						</rich:column>
-						<rich:column width="10%">
-							<h:outputText value="Data" />
-						</rich:column>
-						<rich:column width="10%">
-							<h:outputText value="Abertura" />
-						</rich:column>
-						<rich:column width="10%">
-							<h:outputText value="Minimo" />
-						</rich:column>
-						<rich:column width="10%">
-							<h:outputText value="Maximo" />
-						</rich:column>
-						<rich:column width="10%">
-							<h:outputText value="Medio" />
-						</rich:column>
-						<rich:column width="10%">
-							<h:outputText value="Ultimo" />
-						</rich:column>
-						<rich:column width="10%">
-							<h:outputText value="Oscilacao" />
-						</rich:column>
-					</rich:columnGroup>
-				</f:facet>
-				
-				<rich:columnGroup>
-					<rich:column style="text-align: center" styleClass="#{papel.isNegativo ? 'color: red' : 'color: blue' }">
-						<h:outputText value="#{papel.codigo}" />
-					</rich:column>
-
-					<rich:column style="text-align: center" styleClass="#{papel.isNegativo ? 'color: red' : 'color: blue' }">
-						<h:outputText value="#{papel.nome}" />
-					</rich:column>
-
-					<rich:column style="text-align: center" styleClass="#{papel.isNegativo ? 'color: red' : 'color: blue' }">
-						<h:outputText value="#{papel.ibovespa}" />
-					</rich:column>
-
-					<rich:column style="text-align: center" styleClass="#{papel.isNegativo ? 'color: red' : 'color: blue' }">
-						<h:outputText value="#{papel.dataFormatada}" />
-					</rich:column>
-
-					<rich:column style="text-align: center" styleClass="#{papel.isNegativo ? 'color: red' : 'color: blue' }">
-						<h:outputText value="#{papel.abertura}" />
-					</rich:column>
-
-					<rich:column style="text-align: center" styleClass="#{papel.isNegativo ? 'color: red' : 'color: blue' }">
-						<h:outputText value="#{papel.minimo}" />
-					</rich:column>
-
-					<rich:column style="text-align: center" styleClass="#{papel.isNegativo ? 'color: red' : 'color: blue' }">
-						<h:outputText value="#{papel.maximo}" />
-					</rich:column>
-
-					<rich:column style="text-align: center" styleClass="#{papel.isNegativo ? 'color: red' : 'color: blue' }">
-						<h:outputText value="#{papel.medio}" />
-					</rich:column>
-
-					<rich:column style="text-align: center" styleClass="#{papel.isNegativo ? 'color: red' : 'color: blue' }">
-						<h:outputText value="#{papel.ultimo}" />
-					</rich:column>
-
-					<rich:column style="text-align: center" styleClass="#{papel.isNegativo ? 'color: red' : 'color: blue' }">
-						<h:outputText value="#{papel.oscilacao}" />
-					</rich:column>
+				<h:panelGroup styleClass="general-container">
+					<h:panelGrid columns="3" styleClass="container-format-whitet">
+						<h:outputLabel for="papel" value="Papel: " styleClass="font-label" />
+						<h:inputText id="papel" value="#{papeisBean.consultaPapeisThreadPoolService.papel}" />
+						
+						<a4j:commandLink id="btnAdicionar" action="#{papeisBean.consultaPapeisThreadPoolService.addPapel}" render="papeisDatatable">
+							<h:outputLabel value="Adicionar" style="cursor: pointer;" />
+						</a4j:commandLink>
+					</h:panelGrid>
 					
-				</rich:columnGroup>
-			</rich:dataTable>
-        </h:form>
+					<rich:dataTable 
+						id="papeisDatatable" 
+						rowClasses="odd-row, even-row"
+						cellpadding="0" 
+						cellspacing="0" 
+						styleClass="container-format"
+						width="100%" 
+						border="0" 
+						var="papel" 
+						value="#{papeisBean.consultaPapeisThreadPoolService.papeis}">
+						
+						<f:facet name="header">
+							<rich:columnGroup>
+								<rich:column width="10%">
+									<h:outputText value="Codigo" />
+								</rich:column>
+								
+								<rich:column width="10%">
+									<h:outputText value="Nome" />
+								</rich:column>
+								
+								<rich:column width="10%">
+									<h:outputText value="Data" />
+								</rich:column>
+								
+								<rich:column width="10%">
+									<h:outputText value="Abertura" />
+								</rich:column>
+								
+								<rich:column width="10%">
+									<h:outputText value="Minimo" />
+								</rich:column>
+								
+								<rich:column width="10%">
+									<h:outputText value="Maximo" />
+								</rich:column>
+								
+								<rich:column width="10%">
+									<h:outputText value="Medio" />
+								</rich:column>
+								
+								<rich:column width="10%">
+									<h:outputText value="Ultimo" />
+								</rich:column>
+								
+								<rich:column width="10%">
+									<h:outputText value="Oscilacao" />
+								</rich:column>
+								
+								<rich:column width="10%">
+									<h:outputText value="Excluir" />
+								</rich:column>
+							</rich:columnGroup>
+						</f:facet>
+						
+						<rich:columnGroup>
+							<rich:column styleClass="#{papel.negativo ? 'red' : 'blue' }">
+								<h:outputText value="#{papel.codigo}" />
+							</rich:column>
+		
+							<rich:column styleClass="#{papel.negativo ? 'red' : 'blue' }">
+								<h:outputText value="#{papel.nome}" />
+							</rich:column>
+		
+							<rich:column styleClass="#{papel.negativo ? 'red' : 'blue' }">
+								<h:outputText value="#{papel.dataFormatada}" />
+							</rich:column>
+		
+							<rich:column styleClass="#{papel.negativo ? 'red' : 'blue' }">
+								<h:outputText value="#{papel.abertura}" />
+							</rich:column>
+		
+							<rich:column styleClass="#{papel.negativo ? 'red' : 'blue' }">
+								<h:outputText value="#{papel.minimo}" />
+							</rich:column>
+		
+							<rich:column styleClass="#{papel.negativo ? 'red' : 'blue' }">
+								<h:outputText value="#{papel.maximo}" />
+							</rich:column>
+		
+							<rich:column styleClass="#{papel.negativo ? 'red' : 'blue' }">
+								<h:outputText value="#{papel.medio}" />
+							</rich:column>
+		
+							<rich:column styleClass="#{papel.negativo ? 'red' : 'blue' }">
+								<h:outputText value="#{papel.ultimo}" />
+							</rich:column>
+		
+							<rich:column styleClass="#{papel.negativo ? 'red' : 'blue' }">
+								<h:outputText value="#{papel.oscilacao}" />
+							</rich:column>
+							
+							<rich:column styleClass="white">
+								<a4j:commandLink action="#{papeisBean.consultaPapeisThreadPoolService.remPapel}" render="papeisDatatable">
+									<h:graphicImage value="img/remover.png" style="border: 0px; cursor: pointer;" />
+									<f:setPropertyActionListener target="#{papeisBean.consultaPapeisThreadPoolService.papelObj}" value="#{papel}" />
+								</a4j:commandLink>
+							</rich:column>
+						</rich:columnGroup>
+					</rich:dataTable>
+				</h:panelGroup>
+				
+	        </h:form>
+        </f:view>
     </ui:define>
 </ui:composition>
 </body>

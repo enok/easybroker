@@ -38,7 +38,7 @@ public class ConsultaPapeisThread extends Thread {
 	 * @return
 	 */
 	private String[] getPapeis() {
-		return new String[] { "PETR4", "VALE5" };
+		return new String[] { "PETR4", "VALE5", "ITEC3" };
 	}
 
 	// getters 'n setters

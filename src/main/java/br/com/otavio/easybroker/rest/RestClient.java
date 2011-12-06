@@ -173,10 +173,13 @@ public class RestClient {
 		SimpleDateFormat sdf = new SimpleDateFormat( "dd/MM/yyyyHH:mm:ss" );
 		Date date = null;
 		
+		String localString = string.replaceAll( " " , "" );
+		
 		try {
-			date = sdf.parse( string );
-		} catch (ParseException e) {
-			String msg = "Could not parse the date string: " + string;
+			date = sdf.parse( localString );
+		}
+		catch (ParseException e) {
+			String msg = "Could not parse the date string: " + localString;
 			log.error( msg );
 			throw new RuntimeException( msg, e );
 		}
