@@ -104,6 +104,11 @@ public class ConsultaPapeisThreadPoolService extends ScheduledThreadPoolExecutor
 		List< Papel > papelList = restClient.getPapeis( papel );
 		
 		if ( !CollectionUtils.isEmpty( papelList ) ) {
+			
+			if ( CollectionUtils.isEmpty( papeis ) ) {
+				papeis = new ArrayList< Papel >();
+			}
+			
 			this.papeis.addAll( papelList );
 			Set< Papel > papelSet = new HashSet< Papel >();
 			papelSet.addAll( papeis );

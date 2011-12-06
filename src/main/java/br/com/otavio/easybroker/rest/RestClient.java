@@ -27,6 +27,7 @@ import javax.xml.parsers.ParserConfigurationException;
 
 import org.apache.commons.lang.ArrayUtils;
 import org.apache.log4j.Logger;
+import org.springframework.util.StringUtils;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
@@ -159,7 +160,11 @@ public class RestClient {
 	 */
 	private Float getFloat( final String value ) {
 		
-		return new Float( value.replaceAll(",", ".") );
+		if ( StringUtils.hasLength( value ) ) {
+			return new Float( value.replaceAll(",", ".") );
+		}
+		
+		return new Float(0);
 	}
 	
 	/**
