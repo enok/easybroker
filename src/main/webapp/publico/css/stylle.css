@@ -1,0 +1,58 @@
+* {
+	margin: 0px;
+	text-decoration:none;
+}
+.logo {
+	position: absolute;
+	top:10px;
+	margin-left:15px;
+	background:url(../imagens/logo.png) no-repeat;
+	width:368px;
+	height:135px;
+}
+
+.menu {
+	background:url(../imagens/fundoMenu.png) repeat-x;
+	width:100%;
+	height:203px;
+}
+
+.menu ul {
+	position: absolute;
+	top: 158px;
+	margin: 0px 0px 0px 15px;
+	height: 40px;
+	line-height: 40px;
+	text-align:center;
+}
+
+.menu ul li {
+	float:left;
+	list-style:none;
+	width:110px;
+	height:100%;
+	cursor:pointer;
+	text-shadow:  #000 0px 0px 5px;
+}
+
+
+
+.menu ul li a {
+	display: block;
+	width: 100px;
+	height: 40px; 	
+	color: #000;
+	
+}
+
+.menu ul li a:hover {
+	height: 40px;
+	background-color:#ccc;
+	width: 100px;
+}
+.login {
+	position: absolute;
+	top: 170px;
+	right: 10px
+}
+
