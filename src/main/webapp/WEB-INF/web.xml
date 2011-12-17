@@ -2,19 +2,19 @@
 <web-app version="2.5" xmlns="http://java.sun.com/xml/ns/javaee"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
-	
+
 	<display-name>Easy Broker</display-name>
-	
+
 	<context-param>
 		<param-name>javax.faces.PROJECT_STAGE</param-name>
 		<param-value>Development</param-value>
 	</context-param>
-	
+
 	<context-param>
 		<param-name>javax.faces.SKIP_COMMENTS</param-name>
 		<param-value>true</param-value>
 	</context-param>
-	
+
 	<context-param>
 		<description>Spring context configuration</description>
 		<param-name>contextConfigLocation</param-name>
@@ -26,36 +26,155 @@
 	<listener>
 		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
 	</listener>
-	
+
 	<servlet>
 		<servlet-name>Faces Servlet</servlet-name>
 		<servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
 		<load-on-startup>1</load-on-startup>
 	</servlet>
-	
 	<servlet-mapping>
 		<servlet-name>Faces Servlet</servlet-name>
 		<url-pattern>*.jsf</url-pattern>
 	</servlet-mapping>
-	
 	<servlet-mapping>
 		<servlet-name>Faces Servlet</servlet-name>
 		<url-pattern>/faces/*</url-pattern>
 	</servlet-mapping>
-	
+
+	<servlet>
+		<description></description>
+		<display-name>UsuarioServlet</display-name>
+		<servlet-name>UsuarioServlet</servlet-name>
+		<servlet-class>br.com.otaviodev.easybroker.servlet.UsuarioServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>UsuarioServlet</servlet-name>
+		<url-pattern>/UsuarioServlet</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<description></description>
+		<display-name>LoginServlet</display-name>
+		<servlet-name>LoginServlet</servlet-name>
+		<servlet-class>br.com.otaviodev.easybroker.servlet.LoginServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>LoginServlet</servlet-name>
+		<url-pattern>/LoginServlet</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<description></description>
+		<display-name>EmpresaServlet</display-name>
+		<servlet-name>EmpresaServlet</servlet-name>
+		<servlet-class>br.com.otaviodev.easybroker.servlet.EmpresaServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>EmpresaServlet</servlet-name>
+		<url-pattern>/EmpresaServlet</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<description></description>
+		<display-name>CadastroAcao</display-name>
+		<servlet-name>CadastroAcao</servlet-name>
+		<servlet-class>br.com.otaviodev.easybroker.servlet.CadastroAcao</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>CadastroAcao</servlet-name>
+		<url-pattern>/CadastroAcao</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<description></description>
+		<display-name>ListaEmpresa</display-name>
+		<servlet-name>ListaEmpresa</servlet-name>
+		<servlet-class>br.com.otaviodev.easybroker.servlet.ListaEmpresa</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ListaEmpresa</servlet-name>
+		<url-pattern>/ListaEmpresa</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<description></description>
+		<display-name>ListaUsuario</display-name>
+		<servlet-name>ListaUsuario</servlet-name>
+		<servlet-class>br.com.otaviodev.easybroker.servlet.ListaUsuario</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ListaUsuario</servlet-name>
+		<url-pattern>/ListaUsuario</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<description></description>
+		<display-name>ListEmpAcaoes</display-name>
+		<servlet-name>ListEmpAcaoes</servlet-name>
+		<servlet-class>br.com.otaviodev.easybroker.servlet.ListEmpAcaoes</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ListEmpAcaoes</servlet-name>
+		<url-pattern>/ListEmpAcaoes</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<description></description>
+		<display-name>DeletaAcao</display-name>
+		<servlet-name>DeletaAcao</servlet-name>
+		<servlet-class>br.com.otaviodev.easybroker.servlet.DeletaAcao</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>DeletaAcao</servlet-name>
+		<url-pattern>/DeletaAcao</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<description></description>
+		<display-name>DeletaEmpresa</display-name>
+		<servlet-name>DeletaEmpresa</servlet-name>
+		<servlet-class>br.com.otaviodev.easybroker.servlet.DeletaEmpresa</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>DeletaEmpresa</servlet-name>
+		<url-pattern>/DeletaEmpresa</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<description></description>
+		<display-name>ExcluirEmpresa</display-name>
+		<servlet-name>ExcluirEmpresa</servlet-name>
+		<servlet-class>br.com.otaviodev.easybroker.servlet.ExcluirEmpresa</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ExcluirEmpresa</servlet-name>
+		<url-pattern>/ExcluirEmpresa</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<description></description>
+		<display-name>ExcluirUsuario</display-name>
+		<servlet-name>ExcluirUsuario</servlet-name>
+		<servlet-class>br.com.otaviodev.easybroker.servlet.ExcluirUsuario</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ExcluirUsuario</servlet-name>
+		<url-pattern>/ExcluirUsuario</url-pattern>
+	</servlet-mapping>
+
 	<session-config>
 		<session-timeout>30</session-timeout>
 	</session-config>
-	
+
 	<mime-mapping>
 		<extension>ecss</extension>
 		<mime-type>text/css</mime-type>
 	</mime-mapping>
-	
+
 	<welcome-file-list>
 		<welcome-file>faces/index.jsp</welcome-file>
 	</welcome-file-list>
-	
+
 	<login-config>
 		<auth-method>BASIC</auth-method>
 	</login-config>
