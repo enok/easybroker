@@ -57,7 +57,7 @@ public class LoginServlet extends HttpServlet {
 				mensagem = "Usu�rio e senha n�o conferem!";
 			}
 		}
-		RequestDispatcher dispatcher = request.getRequestDispatcher("./papeis.xhtml");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("./papeis.jsf");
 		request.setAttribute("mensagem", mensagem);
 		request.setAttribute("admin", admin);
 		dispatcher.forward(request, response);

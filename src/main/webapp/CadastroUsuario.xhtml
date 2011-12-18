@@ -1,0 +1,57 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:a4j="http://richfaces.org/a4j"
+      xmlns:rich="http://richfaces.org/rich">
+
+<body>
+
+<ui:composition template="/templates/template.xhtml">
+
+	<ui:define name="title">Home</ui:define>
+
+    <ui:define name="body">
+	  	<f:view>
+			<form action="UsuarioServlet" method="post">
+				<table style="width: 70%;">
+					<tr height="50px">
+						<td colspan="2">Cadastro de usuário</td>
+					</tr>
+					<tr>
+						<td>Nome:</td>
+						<td><input id="txtnome" name="txtnome" type="text" /></td>
+					</tr>
+					<tr>
+						<td>CPF:</td>
+						<td><input id="txtcpf" name="txtcpf" type="text" /></td>
+					</tr>
+					<tr>
+						<td>Sexo:</td>
+						<td><input id="rdbmasc" checked="checked" name="R1"
+							type="radio" value="Masculino" />Masculino <input id="rdbfemi"
+							checked="checked" name="R1" type="radio" value="Feminino" />Feminino
+						</td>
+					</tr>
+					<tr>
+						<td>Email:</td>
+						<td><input id="email" name="email" type="text" /></td>
+					</tr>
+					<tr>
+						<td>Senha:</td>
+						<td><input id="txtsenha" name="txtsenha" type="password" /></td>
+					</tr>
+					<tr>
+						<td>Confirmar Senha:</td>
+						<td><input id="txtsenhaconf" name="txtsenhaconf"
+							type="password" /></td>
+					</tr>
+					<tr>
+						<td id="btnCadastrar"><input type="submit" value="Cadastrar" />
+						</td>
+					</tr>
+				</table>
+			</form>
+        </f:view>
+    </ui:define>
+</ui:composition>
+</body>
+</html>

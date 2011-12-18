@@ -7,7 +7,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>.:: Easybroker ::.</title>
-<jsp:include page="template.jsp"></jsp:include>
+<jsp:include page="templates/template.xhtml"></jsp:include>
 </head>
 <body>
 	<% if ( request.getSession().getAttribute("listaUsuarios") != null) {

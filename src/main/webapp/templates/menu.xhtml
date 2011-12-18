@@ -1,0 +1,46 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:a4j="http://richfaces.org/a4j"
+      xmlns:rich="http://richfaces.org/rich">
+
+<f:view>
+	<div class="menu">
+		<div class="logo"></div>
+		<ul>
+			<li><a href="index.jsp">Home</a></li>
+			<li><a href="sobre.jsf">Sobre</a></li>
+			
+			<h:panelGroup rendered="#{papeisBean.nomeUsuario == null}">
+				<li><a href="CadastroUsuario.jsf">Cadastro</a></li>
+			</h:panelGroup>
+			
+			<h:panelGroup rendered="#{papeisBean.nomeUsuario != null}">
+				<li><a href="papeis.jsf">Papéis</a></li>
+			</h:panelGroup>
+		</ul>
+	</div>
+	<form action="LoginServlet" name="login" method="post" >
+		
+		<h:panelGroup rendered="#{papeisBean.nomeUsuario == null}">
+			<div class="login">
+				Email: 
+				<input type="text" name="txtemail" id="txtemail" size="20"/>
+				Senha:
+				<input type="password" name="txtsenha" id="txtsenha" size="5"/>
+				<input type="submit"  value="Entrar" id="login"/>
+			</div>
+		</h:panelGroup>
+		
+		<h:panelGroup rendered="#{papeisBean.nomeUsuario != null}">
+		  	<div class="login">
+		  		Bem Vindo <h:outputText value="#{papeisBean.nomeUsuario}" />
+				<a href="./logout.jsp" >Sair</a>
+			</div>
+		</h:panelGroup>
+
+		<h:panelGrid id="panelMsg" style="height:45px;">
+			<rich:messages errorClass="mensagemErro" warnClass="mensagemSuccess" infoClass="mensagemInfo" id="mensagem" />
+		</h:panelGrid>
+    </form>
+</f:view>
+</html>

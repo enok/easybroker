@@ -2,6 +2,8 @@ package br.com.otavio.easybroker.view;
 
 import java.io.Serializable;
 
+import javax.faces.context.FacesContext;
+
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
@@ -34,5 +36,29 @@ public class PapeisBean implements Serializable {
 			ConsultaPapeisThreadPoolService consultaPapeisThreadPoolService) {
 		this.consultaPapeisThreadPoolService = consultaPapeisThreadPoolService;
 	}
-
+	
+	public String getNomeUsuario() {
+		
+		Object nomeUsuario = FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("nomeUsuario");
+		
+		String result = null;
+		if ( nomeUsuario != null ) {
+			result = nomeUsuario.toString();
+		}
+		
+		return result;
+	}
+	
+	public String getMensagem() {
+		
+		Object mensagem = FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("mensagem");
+		
+		String result = null;
+		if ( mensagem != null ) {
+			result = mensagem.toString();
+		}
+		
+		return result;
+	}
+	
 }

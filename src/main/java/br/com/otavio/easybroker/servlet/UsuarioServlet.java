@@ -57,7 +57,7 @@ public class UsuarioServlet extends HttpServlet {
 		}
 		
 		request.setAttribute("mensagem", mensagem);
-		RequestDispatcher dispatcher = request.getRequestDispatcher("./CadastroUsuario.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("./CadastroUsuario.jsf");
 		dispatcher.forward(request, response);
 		
 	}

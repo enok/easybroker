@@ -7,12 +7,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>.:: Easybroker ::.</title>
-<jsp:include page="template.jsp"></jsp:include>
+<jsp:include page="templates/template.xhtml"></jsp:include>
 </head>
 <body>
-	<% if ( request.getSession().getAttribute("listaEmpresas") != null) {
-      	List lista = (List) request.getSession().getAttribute("listaEmpresas");
-    %>
+
     
     <form action="CadastroAcao" method="post">
       <table  style="width:70%;">
@@ -26,10 +24,7 @@
           <tr>
               <td>Empresa:</td>
 	              <td><select name="selemp">
-	              		<%for(int i = 0; i < lista.size();i++){%>
-	              		<option><%((EmpresaTO)lista.get(i)).getNomeemp()%> </option>
-	              		<%}%>
-				  
+			  
 	              </td>
               
           </tr>
